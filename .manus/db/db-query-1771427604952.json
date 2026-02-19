@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `notes` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `leadId` int NOT NULL,\n  `content` text NOT NULL,\n  `createdBy` int NOT NULL,\n  `createdByName` varchar(255) NOT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `notes_id` PRIMARY KEY(`id`),\n  CONSTRAINT `notes_leadId_fk` FOREIGN KEY (`leadId`) REFERENCES `leads`(`id`) ON DELETE CASCADE,\n  CONSTRAINT `notes_createdBy_fk` FOREIGN KEY (`createdBy`) REFERENCES `users`(`id`)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute CREATE TABLE IF NOT EXISTS `notes` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `leadId` int NOT NULL,\n  `content` text NOT NULL,\n  `createdBy` int NOT NULL,\n  `createdByName` varchar(255) NOT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `notes_id` PRIMARY KEY(`id`),\n  CONSTRAINT `notes_leadId_fk` FOREIGN KEY (`leadId`) REFERENCES `leads`(`id`) ON DELETE CASCADE,\n  CONSTRAINT `notes_createdBy_fk` FOREIGN KEY (`createdBy`) REFERENCES `users`(`id`)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 477
+}

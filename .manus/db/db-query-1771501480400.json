@@ -1,0 +1,28 @@
+{
+  "query": "\nSELECT o.id, o.name, o.stage, \n       (SELECT COUNT(*) FROM notes WHERE opportunityId = o.id) as note_count\nFROM opportunities o \nWHERE o.name LIKE '%built with%' OR o.name LIKE '%Deal%'\nLIMIT 5;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \nSELECT o.id, o.name, o.stage, \n       (SELECT COUNT(*) FROM notes WHERE opportunityId = o.id) as note_count\nFROM opportunities o \nWHERE o.name LIKE '%built with%' OR o.name LIKE '%Deal%'\nLIMIT 5;\n",
+  "rows": [
+    {
+      "id": "120002",
+      "name": "blumming dfoo - Deal",
+      "stage": "negotiation",
+      "note_count": "1"
+    },
+    {
+      "id": "150001",
+      "name": "built with - Deal",
+      "stage": "proposal",
+      "note_count": "2"
+    },
+    {
+      "id": "120001",
+      "name": "fuck u  - Deal",
+      "stage": "closed_won",
+      "note_count": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tstage\tnote_count\n120002\tblumming dfoo - Deal\tnegotiation\t1\n150001\tbuilt with - Deal\tproposal\t2\n120001\tfuck u  - Deal\tclosed_won\t0\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

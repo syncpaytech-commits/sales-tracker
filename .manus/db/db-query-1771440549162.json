@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, name, leadId FROM opportunities WHERE name LIKE '%weebs%' OR name LIKE '%pepppes%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute SELECT id, name, leadId FROM opportunities WHERE name LIKE '%weebs%' OR name LIKE '%pepppes%';",
+  "rows": [
+    {
+      "id": "60028",
+      "name": "Weebs is due - Deal",
+      "leadId": "120375"
+    },
+    {
+      "id": "60030",
+      "name": "weebs pepppes - Deal",
+      "leadId": "120378"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tleadId\n60028\tWeebs is due - Deal\t120375\n60030\tweebs pepppes - Deal\t120378\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

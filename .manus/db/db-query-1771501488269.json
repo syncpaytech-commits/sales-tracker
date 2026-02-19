@@ -1,0 +1,34 @@
+{
+  "query": "\nSELECT n.id, n.opportunityId, n.leadId, n.content, n.createdAt, o.name as oppName\nFROM notes n\nLEFT JOIN opportunities o ON n.opportunityId = o.id\nWHERE n.content LIKE '%Stage changed%'\nORDER BY n.createdAt DESC;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \nSELECT n.id, n.opportunityId, n.leadId, n.content, n.createdAt, o.name as oppName\nFROM notes n\nLEFT JOIN opportunities o ON n.opportunityId = o.id\nWHERE n.content LIKE '%Stage changed%'\nORDER BY n.createdAt DESC;\n",
+  "rows": [
+    {
+      "id": "30003",
+      "opportunityId": "150001",
+      "leadId": "NULL",
+      "content": "Stage changed to Proposal",
+      "createdAt": "2026-02-19 11:43:51",
+      "oppName": "built with - Deal"
+    },
+    {
+      "id": "30002",
+      "opportunityId": "150001",
+      "leadId": "NULL",
+      "content": "Stage changed to Negotiation",
+      "createdAt": "2026-02-19 11:43:40",
+      "oppName": "built with - Deal"
+    },
+    {
+      "id": "30001",
+      "opportunityId": "120002",
+      "leadId": "NULL",
+      "content": "Stage changed to Negotiation",
+      "createdAt": "2026-02-19 11:43:01",
+      "oppName": "blumming dfoo - Deal"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\topportunityId\tleadId\tcontent\tcreatedAt\toppName\n30003\t150001\tNULL\tStage changed to Proposal\t2026-02-19 11:43:51\tbuilt with - Deal\n30002\t150001\tNULL\tStage changed to Negotiation\t2026-02-19 11:43:40\tbuilt with - Deal\n30001\t120002\tNULL\tStage changed to Negotiation\t2026-02-19 11:43:01\tblumming dfoo - Deal\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

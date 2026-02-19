@@ -1,0 +1,8 @@
+{
+  "query": "\nTRUNCATE TABLE notes;\nTRUNCATE TABLE callLogs;\nTRUNCATE TABLE opportunities;\nTRUNCATE TABLE leads;\nTRUNCATE TABLE todos;\nTRUNCATE TABLE emailTemplates;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \nTRUNCATE TABLE notes;\nTRUNCATE TABLE callLogs;\nTRUNCATE TABLE opportunities;\nTRUNCATE TABLE leads;\nTRUNCATE TABLE todos;\nTRUNCATE TABLE emailTemplates;\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1701 (42000) at line 4: Cannot truncate a table referenced in a foreign key constraint (`BMkvRPynGy4odLDciqESQg`.`notes` CONSTRAINT `fk_3`)"
+  ]
+}

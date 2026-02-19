@@ -1,0 +1,25 @@
+{
+  "query": "\nSELECT id, name, stage FROM opportunities ORDER BY createdAt DESC;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \nSELECT id, name, stage FROM opportunities ORDER BY createdAt DESC;\n",
+  "rows": [
+    {
+      "id": "150001",
+      "name": "built with - Deal",
+      "stage": "proposal"
+    },
+    {
+      "id": "120002",
+      "name": "blumming dfoo - Deal",
+      "stage": "negotiation"
+    },
+    {
+      "id": "120001",
+      "name": "fuck u  - Deal",
+      "stage": "closed_won"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tstage\n150001\tbuilt with - Deal\tproposal\n120002\tblumming dfoo - Deal\tnegotiation\n120001\tfuck u  - Deal\tclosed_won\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}

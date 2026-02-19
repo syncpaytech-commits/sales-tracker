@@ -1,0 +1,8 @@
+{
+  "query": "ALTER TABLE users ADD COLUMN username VARCHAR(255) UNIQUE AFTER openId;\nALTER TABLE users ADD COLUMN password VARCHAR(255) AFTER username;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute ALTER TABLE users ADD COLUMN username VARCHAR(255) UNIQUE AFTER openId;\nALTER TABLE users ADD COLUMN password VARCHAR(255) AFTER username;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 8200 (HY000) at line 1: unsupported add column 'username' constraint UNIQUE KEY when altering 'BMkvRPynGy4odLDciqESQg.users'"
+  ]
+}

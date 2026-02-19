@@ -1,0 +1,37 @@
+{
+  "query": "\n-- Check how many call logs exist\nSELECT COUNT(*) as total_call_logs FROM callLogs;\n\n-- Check call logs without leads (orphaned by conversion)\nSELECT COUNT(*) as orphaned_call_logs FROM callLogs WHERE leadId IS NULL AND opportunityId IS NOT NULL;\n\n-- Check if there are any leads left\nSELECT COUNT(*) as remaining_leads FROM leads;\n\n-- Check opportunities\nSELECT COUNT(*) as total_opportunities FROM opportunities;\n\n-- Sample some call logs to see their state\nSELECT id, leadId, opportunityId, callOutcome, callDate FROM callLogs LIMIT 5;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \n-- Check how many call logs exist\nSELECT COUNT(*) as total_call_logs FROM callLogs;\n\n-- Check call logs without leads (orphaned by conversion)\nSELECT COUNT(*) as orphaned_call_logs FROM callLogs WHERE leadId IS NULL AND opportunityId IS NOT NULL;\n\n-- Check if there are any leads left\nSELECT COUNT(*) as remaining_leads FROM leads;\n\n-- Check opportunities\nSELECT COUNT(*) as total_opportunities FROM opportunities;\n\n-- Sample some call logs to see their state\nSELECT id, leadId, opportunityId, callOutcome, callDate FROM callLogs LIMIT 5;\n",
+  "rows": [
+    {
+      "total_call_logs": "1"
+    },
+    {
+      "total_call_logs": "orphaned_call_logs"
+    },
+    {
+      "total_call_logs": "1"
+    },
+    {
+      "total_call_logs": "remaining_leads"
+    },
+    {
+      "total_call_logs": "0"
+    },
+    {
+      "total_call_logs": "total_opportunities"
+    },
+    {
+      "total_call_logs": "1"
+    },
+    {
+      "total_call_logs": "id\tleadId\topportunityId\tcallOutcome\tcallDate"
+    },
+    {
+      "total_call_logs": "120394\tNULL\t60033\tCallback Requested\t2026-02-18 18:55:45"
+    }
+  ],
+  "messages": [],
+  "stdout": "total_call_logs\n1\norphaned_call_logs\n1\nremaining_leads\n0\ntotal_opportunities\n1\nid\tleadId\topportunityId\tcallOutcome\tcallDate\n120394\tNULL\t60033\tCallback Requested\t2026-02-18 18:55:45\n",
+  "stderr": "",
+  "execution_time_ms": 93
+}

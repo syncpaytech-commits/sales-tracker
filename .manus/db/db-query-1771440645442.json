@@ -1,0 +1,20 @@
+{
+  "query": "\n-- Find the opportunity ID for Weebs pepppes\nSELECT id, name FROM opportunities WHERE name LIKE '%weebs%' OR name LIKE '%pepppes%' LIMIT 1;\n\n-- Update call logs for lead 120375 to point to the opportunity\nUPDATE callLogs \nSET opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1), \n    leadId = NULL \nWHERE leadId = 120375;\n\n-- Update notes for lead 120375 to point to the opportunity\nUPDATE notes \nSET opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1), \n    leadId = NULL \nWHERE leadId = 120375;\n\n-- Delete the lead\nDELETE FROM leads WHERE id = 120375;\n\n-- Verify the migration worked\nSELECT id, leadId, opportunityId, callOutcome FROM callLogs WHERE opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1);\nSELECT id, leadId, opportunityId, LEFT(content, 50) as content_preview FROM notes WHERE opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \n-- Find the opportunity ID for Weebs pepppes\nSELECT id, name FROM opportunities WHERE name LIKE '%weebs%' OR name LIKE '%pepppes%' LIMIT 1;\n\n-- Update call logs for lead 120375 to point to the opportunity\nUPDATE callLogs \nSET opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1), \n    leadId = NULL \nWHERE leadId = 120375;\n\n-- Update notes for lead 120375 to point to the opportunity\nUPDATE notes \nSET opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1), \n    leadId = NULL \nWHERE leadId = 120375;\n\n-- Delete the lead\nDELETE FROM leads WHERE id = 120375;\n\n-- Verify the migration worked\nSELECT id, leadId, opportunityId, callOutcome FROM callLogs WHERE opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1);\nSELECT id, leadId, opportunityId, LEFT(content, 50) as content_preview FROM notes WHERE opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1);\n",
+  "rows": [
+    {
+      "id": "60028",
+      "name": "Weebs is due - Deal"
+    }
+  ],
+  "messages": [
+    "id\tleadId\topportunityId\tcallOutcome",
+    "120385\tNULL\t60028\tDM Reached",
+    "120386\tNULL\t60028\tCallback Requested",
+    "id\tleadId\topportunityId\tcontent_preview",
+    "3\tNULL\t60028\tfuck u "
+  ],
+  "stdout": "id\tname\n60028\tWeebs is due - Deal\nid\tleadId\topportunityId\tcallOutcome\n120385\tNULL\t60028\tDM Reached\n120386\tNULL\t60028\tCallback Requested\nid\tleadId\topportunityId\tcontent_preview\n3\tNULL\t60028\tfuck u \n",
+  "stderr": "",
+  "execution_time_ms": 111
+}

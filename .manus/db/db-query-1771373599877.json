@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE users ADD COLUMN username VARCHAR(255) AFTER openId;\nALTER TABLE users ADD COLUMN password VARCHAR(255) AFTER username;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute ALTER TABLE users ADD COLUMN username VARCHAR(255) AFTER openId;\nALTER TABLE users ADD COLUMN password VARCHAR(255) AFTER username;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1237
+}

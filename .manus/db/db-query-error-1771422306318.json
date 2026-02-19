@@ -1,0 +1,8 @@
+{
+  "query": "ALTER TABLE opportunities DROP FOREIGN KEY opportunities_ibfk_1;\nALTER TABLE opportunities MODIFY COLUMN leadId INT NULL;\nALTER TABLE opportunities ADD CONSTRAINT opportunities_leadId_fk FOREIGN KEY (leadId) REFERENCES leads(id) ON DELETE SET NULL;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute ALTER TABLE opportunities DROP FOREIGN KEY opportunities_ibfk_1;\nALTER TABLE opportunities MODIFY COLUMN leadId INT NULL;\nALTER TABLE opportunities ADD CONSTRAINT opportunities_leadId_fk FOREIGN KEY (leadId) REFERENCES leads(id) ON DELETE SET NULL;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1091 (42000) at line 1: Can't DROP 'opportunities_ibfk_1'; check that column/key exists"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "query": "\n-- Delete all notes (must be first due to foreign keys)\nDELETE FROM notes;\n\n-- Delete all call logs\nDELETE FROM callLogs;\n\n-- Delete all opportunities\nDELETE FROM opportunities;\n\n-- Delete all leads\nDELETE FROM leads;\n\n-- Delete all audit logs\nDELETE FROM auditLogs;\n\n-- Verify all data is cleared\nSELECT \n  (SELECT COUNT(*) FROM leads) as lead_count,\n  (SELECT COUNT(*) FROM opportunities) as opportunity_count,\n  (SELECT COUNT(*) FROM callLogs) as call_log_count,\n  (SELECT COUNT(*) FROM notes) as note_count,\n  (SELECT COUNT(*) FROM auditLogs) as audit_log_count;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \n-- Delete all notes (must be first due to foreign keys)\nDELETE FROM notes;\n\n-- Delete all call logs\nDELETE FROM callLogs;\n\n-- Delete all opportunities\nDELETE FROM opportunities;\n\n-- Delete all leads\nDELETE FROM leads;\n\n-- Delete all audit logs\nDELETE FROM auditLogs;\n\n-- Verify all data is cleared\nSELECT \n  (SELECT COUNT(*) FROM leads) as lead_count,\n  (SELECT COUNT(*) FROM opportunities) as opportunity_count,\n  (SELECT COUNT(*) FROM callLogs) as call_log_count,\n  (SELECT COUNT(*) FROM notes) as note_count,\n  (SELECT COUNT(*) FROM auditLogs) as audit_log_count;\n",
+  "rows": [
+    {
+      "lead_count": "0",
+      "opportunity_count": "0",
+      "call_log_count": "0",
+      "note_count": "0",
+      "audit_log_count": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "lead_count\topportunity_count\tcall_log_count\tnote_count\taudit_log_count\n0\t0\t0\t0\t0\n",
+  "stderr": "",
+  "execution_time_ms": 1795
+}

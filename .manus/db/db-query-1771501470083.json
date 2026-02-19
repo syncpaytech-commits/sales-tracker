@@ -1,0 +1,40 @@
+{
+  "query": "\nSELECT * FROM notes WHERE content LIKE '%Stage changed%' ORDER BY createdAt DESC LIMIT 10;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \nSELECT * FROM notes WHERE content LIKE '%Stage changed%' ORDER BY createdAt DESC LIMIT 10;\n",
+  "rows": [
+    {
+      "id": "30003",
+      "leadId": "NULL",
+      "content": "Stage changed to Proposal",
+      "createdBy": "1",
+      "createdByName": "Callum Scott",
+      "createdAt": "2026-02-19 11:43:51",
+      "updatedAt": "2026-02-19 11:43:51",
+      "opportunityId": "150001"
+    },
+    {
+      "id": "30002",
+      "leadId": "NULL",
+      "content": "Stage changed to Negotiation",
+      "createdBy": "1",
+      "createdByName": "Callum Scott",
+      "createdAt": "2026-02-19 11:43:40",
+      "updatedAt": "2026-02-19 11:43:40",
+      "opportunityId": "150001"
+    },
+    {
+      "id": "30001",
+      "leadId": "NULL",
+      "content": "Stage changed to Negotiation",
+      "createdBy": "1",
+      "createdByName": "Callum Scott",
+      "createdAt": "2026-02-19 11:43:01",
+      "updatedAt": "2026-02-19 11:43:01",
+      "opportunityId": "120002"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tleadId\tcontent\tcreatedBy\tcreatedByName\tcreatedAt\tupdatedAt\topportunityId\n30003\tNULL\tStage changed to Proposal\t1\tCallum Scott\t2026-02-19 11:43:51\t2026-02-19 11:43:51\t150001\n30002\tNULL\tStage changed to Negotiation\t1\tCallum Scott\t2026-02-19 11:43:40\t2026-02-19 11:43:40\t150001\n30001\tNULL\tStage changed to Negotiation\t1\tCallum Scott\t2026-02-19 11:43:01\t2026-02-19 11:43:01\t120002\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

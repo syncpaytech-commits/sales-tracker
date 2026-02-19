@@ -1,0 +1,11 @@
+{
+  "query": "\n-- First, let's see what opportunities exist\nSELECT id, name, leadId FROM opportunities WHERE name LIKE '%weebs%' OR name LIKE '%pepppes%';\n\n-- Update call logs for lead 120375 to point to the opportunity\nUPDATE callLogs SET opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1), leadId = NULL WHERE leadId = 120375;\n\n-- Update notes for lead 120375 to point to the opportunity\nUPDATE notes SET opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1), leadId = NULL WHERE leadId = 120375;\n\n-- Delete the lead\nDELETE FROM leads WHERE id = 120375;\n\n-- Verify the migration\nSELECT id, leadId, opportunityId, callOutcome FROM callLogs WHERE opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1);\nSELECT id, leadId, opportunityId, content FROM notes WHERE opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \n-- First, let's see what opportunities exist\nSELECT id, name, leadId FROM opportunities WHERE name LIKE '%weebs%' OR name LIKE '%pepppes%';\n\n-- Update call logs for lead 120375 to point to the opportunity\nUPDATE callLogs SET opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1), leadId = NULL WHERE leadId = 120375;\n\n-- Update notes for lead 120375 to point to the opportunity\nUPDATE notes SET opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1), leadId = NULL WHERE leadId = 120375;\n\n-- Delete the lead\nDELETE FROM leads WHERE id = 120375;\n\n-- Verify the migration\nSELECT id, leadId, opportunityId, callOutcome FROM callLogs WHERE opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1);\nSELECT id, leadId, opportunityId, content FROM notes WHERE opportunityId = (SELECT id FROM opportunities WHERE name LIKE '%weebs%' LIMIT 1);\n",
+  "returncode": 1,
+  "logs": [
+    "id\tname\tleadId",
+    "60028\tWeebs is due - Deal\t120375",
+    "60030\tweebs pepppes - Deal\t120378",
+    "ERROR 1048 (23000) at line 6: Column 'leadId' cannot be null"
+  ]
+}

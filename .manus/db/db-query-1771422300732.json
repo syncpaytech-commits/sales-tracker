@@ -1,0 +1,13 @@
+{
+  "query": "SELECT CONSTRAINT_NAME \nFROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE \nWHERE TABLE_NAME = 'opportunities' \nAND COLUMN_NAME = 'leadId' \nAND REFERENCED_TABLE_NAME IS NOT NULL;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute SELECT CONSTRAINT_NAME \nFROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE \nWHERE TABLE_NAME = 'opportunities' \nAND COLUMN_NAME = 'leadId' \nAND REFERENCED_TABLE_NAME IS NOT NULL;",
+  "rows": [
+    {
+      "CONSTRAINT_NAME": "opportunities_leadId_fk"
+    }
+  ],
+  "messages": [],
+  "stdout": "CONSTRAINT_NAME\nopportunities_leadId_fk\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

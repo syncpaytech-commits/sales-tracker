@@ -1,0 +1,38 @@
+{
+  "query": "SHOW CREATE TABLE opportunities;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute SHOW CREATE TABLE opportunities;",
+  "rows": [
+    {
+      "Table": "opportunities",
+      "Create Table": "CREATE TABLE `opportunities` ("
+    }
+  ],
+  "messages": [
+    "  `id` int(11) NOT NULL AUTO_INCREMENT,",
+    "  `leadId` int(11) DEFAULT NULL,",
+    "  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,",
+    "  `companyName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,",
+    "  `contactName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,",
+    "  `phone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `email` varchar(320) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `stage` enum('qualified','proposal','negotiation','closed_won','closed_lost') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'qualified',",
+    "  `dealValue` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `probability` int(11) DEFAULT '50',",
+    "  `expectedCloseDate` timestamp NULL DEFAULT NULL,",
+    "  `actualCloseDate` timestamp NULL DEFAULT NULL,",
+    "  `ownerId` int(11) NOT NULL,",
+    "  `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `lossReason` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,",
+    "  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,",
+    "  PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */,",
+    "  KEY `opportunities_leadId_fk` (`leadId`),",
+    "  KEY `opportunities_ownerId_fk` (`ownerId`),",
+    "  CONSTRAINT `opportunities_leadId_fk` FOREIGN KEY (`leadId`) REFERENCES `BMkvRPynGy4odLDciqESQg`.`leads` (`id`),",
+    "  CONSTRAINT `opportunities_ownerId_fk` FOREIGN KEY (`ownerId`) REFERENCES `BMkvRPynGy4odLDciqESQg`.`users` (`id`)",
+    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=90001"
+  ],
+  "stdout": "Table\tCreate Table\nopportunities\tCREATE TABLE `opportunities` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `leadId` int(11) DEFAULT NULL,\n  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `companyName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `contactName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `phone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `email` varchar(320) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `stage` enum('qualified','proposal','negotiation','closed_won','closed_lost') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'qualified',\n  `dealValue` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `probability` int(11) DEFAULT '50',\n  `expectedCloseDate` timestamp NULL DEFAULT NULL,\n  `actualCloseDate` timestamp NULL DEFAULT NULL,\n  `ownerId` int(11) NOT NULL,\n  `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `lossReason` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */,\n  KEY `opportunities_leadId_fk` (`leadId`),\n  KEY `opportunities_ownerId_fk` (`ownerId`),\n  CONSTRAINT `opportunities_leadId_fk` FOREIGN KEY (`leadId`) REFERENCES `BMkvRPynGy4odLDciqESQg`.`leads` (`id`),\n  CONSTRAINT `opportunities_ownerId_fk` FOREIGN KEY (`ownerId`) REFERENCES `BMkvRPynGy4odLDciqESQg`.`users` (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=90001\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

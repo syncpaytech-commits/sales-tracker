@@ -1,0 +1,43 @@
+{
+  "query": "\n-- Check if the lead \"weebs pepppes\" still exists\nSELECT id, companyName, stage FROM leads WHERE companyName LIKE '%weebs%' OR companyName LIKE '%pepppes%';\n\n-- Check opportunities for \"weebs pepppes\"\nSELECT id, name, leadId FROM opportunities WHERE name LIKE '%weebs%' OR name LIKE '%pepppes%';\n\n-- Check call logs - see if they have opportunityId set\nSELECT id, leadId, opportunityId, callOutcome, notes FROM callLogs WHERE leadId IN (SELECT id FROM leads WHERE companyName LIKE '%weebs%') OR opportunityId IN (SELECT id FROM opportunities WHERE name LIKE '%weebs%');\n\n-- Check notes - see if they have opportunityId set\nSELECT id, leadId, opportunityId, content FROM notes WHERE leadId IN (SELECT id FROM leads WHERE companyName LIKE '%weebs%') OR opportunityId IN (SELECT id FROM opportunities WHERE name LIKE '%weebs%');\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2SEDxyrr1FpTuCb.3f60e8c25fc3 --database BMkvRPynGy4odLDciqESQg --execute \n-- Check if the lead \"weebs pepppes\" still exists\nSELECT id, companyName, stage FROM leads WHERE companyName LIKE '%weebs%' OR companyName LIKE '%pepppes%';\n\n-- Check opportunities for \"weebs pepppes\"\nSELECT id, name, leadId FROM opportunities WHERE name LIKE '%weebs%' OR name LIKE '%pepppes%';\n\n-- Check call logs - see if they have opportunityId set\nSELECT id, leadId, opportunityId, callOutcome, notes FROM callLogs WHERE leadId IN (SELECT id FROM leads WHERE companyName LIKE '%weebs%') OR opportunityId IN (SELECT id FROM opportunities WHERE name LIKE '%weebs%');\n\n-- Check notes - see if they have opportunityId set\nSELECT id, leadId, opportunityId, content FROM notes WHERE leadId IN (SELECT id FROM leads WHERE companyName LIKE '%weebs%') OR opportunityId IN (SELECT id FROM opportunities WHERE name LIKE '%weebs%');\n",
+  "rows": [
+    {
+      "id": "120375",
+      "companyName": "Weebs is due",
+      "stage": "parked"
+    },
+    {
+      "id": "120378",
+      "companyName": "weebs pepppes",
+      "stage": "attempting"
+    },
+    {
+      "id": "id",
+      "companyName": "name",
+      "stage": "leadId"
+    },
+    {
+      "id": "60028",
+      "companyName": "Weebs is due - Deal",
+      "stage": "120375"
+    },
+    {
+      "id": "60030",
+      "companyName": "weebs pepppes - Deal",
+      "stage": "120378"
+    }
+  ],
+  "messages": [
+    "id\tleadId\topportunityId\tcallOutcome\tnotes",
+    "120385\t120375\tNULL\tDM Reached\tyes lad ",
+    "120386\t120375\tNULL\tCallback Requested\tNULL",
+    "120388\t120378\tNULL\tCallback Requested\tNULL",
+    "120389\t120378\tNULL\tGatekeeper\tNULL",
+    "id\tleadId\topportunityId\tcontent",
+    "3\t120375\tNULL\tfuck u "
+  ],
+  "stdout": "id\tcompanyName\tstage\n120375\tWeebs is due\tparked\n120378\tweebs pepppes\tattempting\nid\tname\tleadId\n60028\tWeebs is due - Deal\t120375\n60030\tweebs pepppes - Deal\t120378\nid\tleadId\topportunityId\tcallOutcome\tnotes\n120385\t120375\tNULL\tDM Reached\tyes lad \n120386\t120375\tNULL\tCallback Requested\tNULL\n120388\t120378\tNULL\tCallback Requested\tNULL\n120389\t120378\tNULL\tGatekeeper\tNULL\nid\tleadId\topportunityId\tcontent\n3\t120375\tNULL\tfuck u \n",
+  "stderr": "",
+  "execution_time_ms": 83
+}
